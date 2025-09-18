@@ -9,7 +9,13 @@ connectDB();
 
 const app = express();
 
-app.use(cors());
+// ✅ CORS setup (all origins allowed for now)
+app.use(cors({
+  origin: "*",
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"]
+}));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
