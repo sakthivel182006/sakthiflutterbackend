@@ -1,7 +1,6 @@
 import User from '../models/User.js';
 import bcrypt from 'bcryptjs';
 
-// Register/Create User
 export const createUser = async (req, res) => {
   try {
     const { name, email, password, role } = req.body;
@@ -20,7 +19,6 @@ export const createUser = async (req, res) => {
   }
 };
 
-// Get all users (exclude passwords)
 export const getUsers = async (req, res) => {
   try {
     const users = await User.find().select('-password');
@@ -30,7 +28,6 @@ export const getUsers = async (req, res) => {
   }
 };
 
-// Login User
 export const loginUser = async (req, res) => {
   try {
     const { email, password } = req.body;
