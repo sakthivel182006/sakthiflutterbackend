@@ -4,6 +4,9 @@ import cors from 'cors';
 import connectDB from './config/db.js';
 import userRoutes from './routes/userRoutes.js';
 
+import questionRoutes from './routes/questions.js';
+
+
 dotenv.config();
 connectDB();
 
@@ -21,6 +24,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use('/api/users', userRoutes);
 
+app.use('/api/questions', questionRoutes);
 app.get('/', (req, res) => {
   res.send('Server is running');
 });
